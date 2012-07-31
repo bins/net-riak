@@ -1,0 +1,11 @@
+.project
+_build
+.build
+*~
+*#
+*.bak
+*.old
+*.rej
+*.swp
+*.tmp
+*.swo
