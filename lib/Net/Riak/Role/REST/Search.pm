@@ -1,5 +1,5 @@
 package Net::Riak::Role::REST::Search;
-use Moose::Role;
+use Mouse::Role;
 use JSON;
 
 #ABSTRACT: Search interface

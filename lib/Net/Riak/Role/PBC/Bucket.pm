@@ -1,6 +1,6 @@
 package Net::Riak::Role::PBC::Bucket;
 
-use Moose::Role;
+use Mouse::Role;
 use Data::Dumper;
 
 sub get_properties {

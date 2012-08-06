@@ -1,12 +1,15 @@
 package Net::Riak::Bucket;
-use Moose;
+use Mouse;
 use Net::Riak::Object;
-use Net::Riak::Types Client => {-as => 'Client_T'};
-with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
+# with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
+
+# Replacement for with 'Net::Riak::Role::Replica' 
+has r => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->r });
+has w => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->w });
+has dw => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->dw });
 
 has client => (
     is       => 'rw',
-    isa      => Client_T,
     required => 1,
 );
 

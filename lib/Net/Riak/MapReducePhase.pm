@@ -1,6 +1,6 @@
 package Net::Riak::MapReducePhase;
 
-use Moose;
+use Mouse;
 use Scalar::Util;
 use JSON;
 

@@ -4,9 +4,8 @@ package Net::Riak::Role::REST;
 
 use URI;
 
-use Moose::Role;
-use MooseX::Types::Moose 'Bool';
-use Net::Riak::Types qw/HTTPResponse HTTPRequest/;
+use Mouse::Role;
+use MouseX::Types::Mouse 'Bool';
 use Data::Dump 'pp';
 with qw/Net::Riak::Role::REST::Bucket 
     Net::Riak::Role::REST::Object 
@@ -17,12 +16,10 @@ with qw/Net::Riak::Role::REST::Bucket
 
 has http_request => (
     is => 'rw',
-    isa => HTTPRequest,
 );
 
 has http_response => (
     is => 'rw',
-    isa => HTTPResponse,
     handles => {
         is_success => 'is_success',
         status => 'code',

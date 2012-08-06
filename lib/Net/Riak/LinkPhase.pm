@@ -1,6 +1,6 @@
 package Net::Riak::LinkPhase;
 
-use Moose;
+use Mouse;
 use JSON;
 
 has bucket => (is => 'ro', isa => 'Str', required => 1);

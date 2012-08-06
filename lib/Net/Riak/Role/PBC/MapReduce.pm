@@ -1,5 +1,5 @@
 package Net::Riak::Role::PBC::MapReduce;
-use Moose::Role;
+use Mouse::Role;
 use JSON;
 use List::Util 'sum';
 use Data::Dump 'pp';

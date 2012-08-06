@@ -1,8 +1,8 @@
 package Net::Riak::Types;
 
-use MooseX::Types::Moose qw/Str ArrayRef HashRef/;
-use MooseX::Types::Structured qw(Tuple Optional Dict);
-use MooseX::Types -declare =>
+use MouseX::Types::Mouse qw/Str ArrayRef HashRef/;
+# use MouseX::Types::Structured qw(Tuple Optional Dict);
+use MouseX::Types -declare =>
   [qw(Socket Client HTTPResponse HTTPRequest RiakHost)];
 
 class_type Socket,       { class => 'IO::Socket::INET' };

@@ -2,17 +2,15 @@ package Net::Riak;
 
 # ABSTRACT: Interface to Riak
 
-use Moose;
+use Mouse;
 
 use Net::Riak::Client;
 use Net::Riak::Bucket;
-use Net::Riak::Types Client => { -as => 'Client_T' };
 
 with 'Net::Riak::Role::MapReduce';
 
 has client => (
     is       => 'rw',
-    isa      => Client_T,
     required => 1,
     handles  => [qw/is_alive all_buckets server_info stats search setup_indexing/]
 );

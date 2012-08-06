@@ -1,5 +1,5 @@
 package Net::Riak::Role::REST::MapReduce;
-use Moose::Role;
+use Mouse::Role;
 use JSON;
 use Data::Dumper;
 

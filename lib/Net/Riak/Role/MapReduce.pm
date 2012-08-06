@@ -1,6 +1,6 @@
 package Net::Riak::Role::MapReduce;
 
-use Moose::Role;
+use Mouse::Role;
 use Net::Riak::MapReduce;
 
 sub add {

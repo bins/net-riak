@@ -1,7 +1,7 @@
 package Net::Riak::Role::PBC::Object;
 
 use JSON;
-use Moose::Role;
+use Mouse::Role;
 use Data::Dumper;
 use List::Util 'first';
 

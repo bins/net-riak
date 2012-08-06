@@ -2,7 +2,7 @@ package Net::Riak::Role::UserAgent;
 
 # ABSTRACT: useragent for Net::Riak
 
-use Moose::Role;
+use Mouse::Role;
 use LWP::UserAgent;
 use LWP::ConnCache;
 

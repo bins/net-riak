@@ -3,7 +3,7 @@ use warnings;
 use Test::More;
 
 package test::host;
-use Moose; with 'Net::Riak::Role::Hosts';
+use Mouse; with 'Net::Riak::Role::Hosts';
 
 package main;
 

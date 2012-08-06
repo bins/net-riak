@@ -1,15 +1,13 @@
 package Net::Riak::Transport::PBC::Message;
 
-use Moose;
-use MooseX::Types::Moose qw/Str HashRef Int/;
-use Net::Riak::Types 'Socket';
+use Mouse;
+use MouseX::Types::Mouse qw/Str HashRef Int/;
 use Net::Riak::Transport::PBC::Code qw/
   REQ_CODE EXPECTED_RESP RESP_CLASS RESP_DECODER/;
 use Net::Riak::Transport::PBC::Transport;
 
 has socket => (
     is        => 'rw',
-    isa       => Socket,
     predicate => 'has_socket',
 );
 

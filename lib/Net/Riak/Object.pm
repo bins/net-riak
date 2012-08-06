@@ -2,19 +2,31 @@ package Net::Riak::Object;
 
 # ABSTRACT: holds meta information about a Riak object
 
-use Moose;
+use Mouse;
 use Scalar::Util;
 use Net::Riak::Link;
 
-with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
-with 'Net::Riak::Role::Base' => {classes =>
-      [{name => 'bucket', required => 1}]};
-use Net::Riak::Types Client => {-as => 'Client_T'};
-has client => (
+# with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
+# with 'Net::Riak::Role::Base' => {classes =>
+      # [{name => 'bucket', required => 1}]};
+
+# Replacement for with 'Net::Riak::Role::Replica' 
+has r => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->r });
+has w => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->w });
+has dw => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->dw });
+
+# Replacement for  with 'Net::Riak::Role::Base'
+has bucket => (
     is       => 'rw',
-    isa      => Client_T,
+    isa      => 'Net::Riak::Bucket',
     required => 1,
 );
+
+has client => (
+    is       => 'rw',
+    required => 1,
+);
+
 has key => (is => 'rw', isa => 'Str', required => 0);
 has exists       => (is => 'rw', isa => 'Bool', default => 0,);
 has data         => (is => 'rw', isa => 'Any', clearer => '_clear_data');

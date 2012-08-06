@@ -3,7 +3,7 @@ package Net::Riak::MapReduce;
 # ABSTRACT: Allows you to build up and run a map/reduce operation on Riak
 
 use JSON;
-use Moose;
+use Mouse;
 use Scalar::Util;
 
 use Data::Dumper;
@@ -11,8 +11,15 @@ use Data::Dumper;
 use Net::Riak::LinkPhase;
 use Net::Riak::MapReducePhase;
 
-with 'Net::Riak::Role::Base' =>
-  {classes => [{name => 'client', required => 1}]};
+# with 'Net::Riak::Role::Base' =>
+#   {classes => [{name => 'client', required => 1}]};
+
+# Replacement for  with 'Net::Riak::Role::Base'
+has client => (
+    is       => 'rw',
+    isa      => 'Net::Riak::Client',
+    required => 1,
+);
 
 has phases => (
     traits     => ['Array'],

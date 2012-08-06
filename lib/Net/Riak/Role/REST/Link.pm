@@ -1,5 +1,5 @@
 package Net::Riak::Role::REST::Link;
-use Moose::Role;
+use Mouse::Role;
 use Net::Riak::Link;
 use Net::Riak::Bucket;
 

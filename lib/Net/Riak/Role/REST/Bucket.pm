@@ -1,6 +1,6 @@
 package Net::Riak::Role::REST::Bucket;
 
-use Moose::Role;
+use Mouse::Role;
 use JSON;
 
 sub get_properties {

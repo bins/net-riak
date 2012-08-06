@@ -1,7 +1,7 @@
 package Net::Riak::Role::PBC;
 
-use Moose::Role;
-use MooseX::Types::Moose qw/Str Int/;
+use Mouse::Role;
+use MouseX::Types::Mouse qw/Str Int/;
 
 with qw(
   Net::Riak::Role::PBC::Message
@@ -10,7 +10,6 @@ with qw(
   Net::Riak::Role::PBC::Link
   Net::Riak::Role::PBC::Object);
 
-use Net::Riak::Types 'Socket';
 use IO::Socket::INET;
 
 has [qw/r w dw/] => (
@@ -33,7 +32,6 @@ has port => (
 
 has socket => (
     is => 'rw',
-    isa => Socket,
     predicate => 'has_socket',
 );
 

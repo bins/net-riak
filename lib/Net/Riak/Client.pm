@@ -1,9 +1,9 @@
 package Net::Riak::Client;
 
-use Moose;
+use Mouse;
 use MIME::Base64;
 
-with 'MooseX::Traits';
+with 'MouseX::Traits';
 
 has prefix => (
     is      => 'rw',

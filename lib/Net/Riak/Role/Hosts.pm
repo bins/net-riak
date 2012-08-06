@@ -1,6 +1,6 @@
 package Net::Riak::Role::Hosts;
 
-use Moose::Role;
+use Mouse::Role;
 use Net::Riak::Types qw(RiakHost);
 
 has host => (

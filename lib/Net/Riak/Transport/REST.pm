@@ -1,6 +1,6 @@
 package Net::Riak::Transport::REST;
 
-use Moose::Role;
+use Mouse::Role;
 
 with qw/
   Net::Riak::Role::UserAgent

@@ -1,6 +1,6 @@
 package Net::Riak::Role::PBC::Message;
 
-use Moose::Role;
+use Mouse::Role;
 use Net::Riak::Transport::PBC::Message;
 
 sub send_message {

@@ -1,6 +1,6 @@
 package Net::Riak::Role::REST::Object;
 
-use Moose::Role;
+use Mouse::Role;
 use JSON;
 
 sub store_object {

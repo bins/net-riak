@@ -1,6 +1,6 @@
 package Net::Riak::Transport::PBC;
 
-use Moose::Role;
+use Mouse::Role;
 
 with qw/
   Net::Riak::Role::PBC
