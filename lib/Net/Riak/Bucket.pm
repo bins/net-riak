@@ -1,12 +1,10 @@
 package Net::Riak::Bucket;
 use Mouse;
 use Net::Riak::Object;
-# with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
 
-# Replacement for with 'Net::Riak::Role::Replica' 
-has r => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->r });
-has w => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->w });
-has dw => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->dw });
+has r => (is => 'rw', lazy => 1, default => sub { (shift)->client->r });
+has w => (is => 'rw', lazy => 1, default => sub { (shift)->client->w });
+has dw => (is => 'rw', lazy => 1, default => sub { (shift)->client->dw });
 
 has client => (
     is       => 'rw',
@@ -15,12 +13,10 @@ has client => (
 
 has name => (
     is       => 'ro',
-    isa      => 'Str',
     required => 1
 );
 has content_type => (
     is      => 'rw',
-    isa     => 'Str',
     default => 'application/json'
 );
 

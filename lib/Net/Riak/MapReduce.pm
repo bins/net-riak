@@ -11,20 +11,14 @@ use Data::Dumper;
 use Net::Riak::LinkPhase;
 use Net::Riak::MapReducePhase;
 
-# with 'Net::Riak::Role::Base' =>
-#   {classes => [{name => 'client', required => 1}]};
-
-# Replacement for  with 'Net::Riak::Role::Base'
 has client => (
     is       => 'rw',
-    isa      => 'Net::Riak::Client',
     required => 1,
 );
 
 has phases => (
     traits     => ['Array'],
     is         => 'rw',
-    isa        => 'ArrayRef[Object]',
     auto_deref => 1,
     lazy       => 1,
     default    => sub { [] },
@@ -37,19 +31,16 @@ has phases => (
 );
 has inputs_bucket => (
     is => 'rw',
-    isa => 'Str',
     predicate => 'has_inputs_bucket',
 );
 has inputs => (
     traits  => ['Array'],
     is      => 'rw',
-    isa     => 'ArrayRef[ArrayRef]',
     handles => {add_input => 'push',},
     default => sub { [] },
 );
 has input_mode => (
     is        => 'rw',
-    isa       => 'Str',
     predicate => 'has_input_mode',
 );
 

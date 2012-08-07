@@ -12,13 +12,18 @@ sub connection_cache { $CONN_CACHE ||= LWP::ConnCache->new }
 
 has ua_timeout => (
     is  => 'rw',
-    isa => 'Int',
     default => 120
 );
 
+=attr useragent
+
+rw, object of LWP::UserAgent, default value is new object of LWP::UserAgent
+with given attribute timeout
+
+=cut
+
 has useragent => (
     is      => 'rw',
-    isa     => 'LWP::UserAgent',
     lazy    => 1,
     default => sub {
         my $self = shift;

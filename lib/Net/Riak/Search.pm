@@ -1,16 +1,10 @@
-package
-Net::Riak::Search;
+package Net::Riak::Search;
 use Mouse;
 
 #ABSTRACT: Search interface
 
-# with 'Net::Riak::Role::Base' => {classes =>
-#       [{name => 'client', required => 0},]};
-
-# Replacement for  with 'Net::Riak::Role::Base'
 has client => (
     is       => 'rw',
-    isa      => 'Net::Riak::Client',
     required => 0,
 );
 

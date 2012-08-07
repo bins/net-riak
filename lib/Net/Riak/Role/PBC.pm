@@ -14,19 +14,16 @@ use IO::Socket::INET;
 
 has [qw/r w dw/] => (
     is      => 'rw',
-    isa     => Int,
     default => 2
 );
 
 has host => (
     is  => 'ro',
-    isa => Str,
     required => 1,
 );
 
 has port => (
     is  => 'ro',
-    isa => Int,
     required => 1,
 );
 
@@ -37,7 +34,6 @@ has socket => (
 
 has timeout => (
     is => 'ro',
-    isa => Int,
     default => 30,
 );
 

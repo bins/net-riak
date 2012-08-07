@@ -1,7 +1,6 @@
 package Net::Riak::Types;
 
 use MouseX::Types::Mouse qw/Str ArrayRef HashRef/;
-# use MouseX::Types::Structured qw(Tuple Optional Dict);
 use MouseX::Types -declare =>
   [qw(Socket Client HTTPResponse HTTPRequest RiakHost)];
 

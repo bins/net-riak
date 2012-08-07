@@ -5,20 +5,12 @@ package Net::Riak::Object;
 use Mouse;
 use Scalar::Util;
 use Net::Riak::Link;
+has r => (is => 'rw', lazy => 1, required => 0, default => sub { (shift)->client->r });
+has w => (is => 'rw', lazy => 1, required => 0, default => sub { (shift)->client->w });
+has dw => (is => 'rw', lazy => 1, required => 0, default => sub { (shift)->client->dw });
 
-# with 'Net::Riak::Role::Replica' => {keys => [qw/r w dw/]};
-# with 'Net::Riak::Role::Base' => {classes =>
-      # [{name => 'bucket', required => 1}]};
-
-# Replacement for with 'Net::Riak::Role::Replica' 
-has r => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->r });
-has w => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->w });
-has dw => (is => 'rw', isa => 'Int', lazy => 1, required => 0, default => sub { (shift)->client->dw });
-
-# Replacement for  with 'Net::Riak::Role::Base'
 has bucket => (
     is       => 'rw',
-    isa      => 'Net::Riak::Bucket',
     required => 1,
 );
 
@@ -27,18 +19,18 @@ has client => (
     required => 1,
 );
 
-has key => (is => 'rw', isa => 'Str', required => 0);
-has exists       => (is => 'rw', isa => 'Bool', default => 0,);
-has data         => (is => 'rw', isa => 'Any', clearer => '_clear_data');
-has vclock       => (is => 'rw', isa => 'Str', predicate => 'has_vclock');
-has vtag          => (is => 'rw', isa => 'Str');
-has content_type => (is => 'rw', isa => 'Str', default => 'application/json');
-has location     => ( is => 'rw', isa => 'Str' );
-has _jsonize     => (is => 'rw', isa => 'Bool', lazy => 1, default => 1);
+has key => (is => 'rw', required => 0);
+has exists       => (is => 'rw', default => 0,);
+has data         => (is => 'rw', clearer => '_clear_data');
+has vclock       => (is => 'rw', predicate => 'has_vclock');
+has vtag          => (is => 'rw');
+has content_type => (is => 'rw', default => 'application/json');
+has location     => ( is => 'rw' );
+has _jsonize     => (is => 'rw', lazy => 1, default => 1);
+
 has links => (
     traits     => ['Array'],
     is         => 'rw',
-    isa        => 'ArrayRef[Net::Riak::Link]',
     auto_deref => 1,
     lazy       => 1,
     default    => sub { [] },
@@ -50,10 +42,10 @@ has links => (
     },
     clearer => '_clear_links',
 );
+
 has siblings => (
     traits     => ['Array'],
     is         => 'rw',
-    isa        => 'ArrayRef[Str]',
     auto_deref => 1,
     lazy       => 1,
     default    => sub { [] },

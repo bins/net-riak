@@ -5,7 +5,7 @@ use Net::Riak::Types qw(RiakHost);
 
 has host => (
     is      => 'rw',
-    isa     => RiakHost,
+    isa => RiakHost,
     coerce  => 1,
     default => 'http://127.0.0.1:8098',
 );

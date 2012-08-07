@@ -4,31 +4,47 @@ package Net::Riak::Link;
 
 use Mouse;
 
-# with 'Net::Riak::Role::Base' => {classes =>
-#       [{name => 'client', required => 0}, {name => 'bucket', required => 1},]};
+=attr client
 
-# Replacement for  with 'Net::Riak::Role::Base'
+rw, object of Net::Riak::Client 
+
+=cut
+
 has client => (
     is       => 'rw',
-    isa      => 'Net::Riak::Client',
-    required => 0,
 );
+
+=attr bucket
+
+rw, required, object of Net::Riak::Bucket
+
+=cut
 
 has bucket => (
     is       => 'rw',
-    isa      => 'Net::Riak::Bucket',
     required => 1,
 );
 
+=attr key
+
+rw, Str, default value is '_'
+
+=cut
+
 has key => (
     is      => 'rw',
-    isa     => 'Str',
     lazy    => 1,
     default => '_',
 );
+
+=attr tag
+
+rw, Str, default value is the name of bucket
+
+=cut
+
 has tag => (
     is      => 'rw',
-    isa     => 'Str',
     lazy    => 1,
     default => sub {(shift)->bucket->name}
 );

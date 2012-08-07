@@ -12,21 +12,18 @@ has socket => (
 );
 
 has request => (
-    isa        => 'Str',
     is         => 'ro',
     lazy_build => 1,
 );
 
 has request_code => (
     required => 1,
-    isa => Int,
     is => 'ro',
     lazy_build => 1,
 );
 
 has message_type => (
     required => 1,
-    isa => Str,
     is => 'ro',
     trigger => sub {
         $_[0]->{message_type} = 'Rpb'.$_[1];
@@ -35,7 +32,6 @@ has message_type => (
 
 has params => (
     is  => 'ro',
-    isa => HashRef,
 );
 
 sub _build_request_code {

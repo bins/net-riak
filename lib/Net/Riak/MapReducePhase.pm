@@ -4,11 +4,61 @@ use Mouse;
 use Scalar::Util;
 use JSON;
 
-has type     => (is => 'rw', isa => 'Str',      required => 1,);
-has function => (is => 'ro', isa => 'Str',      required => 1);
-has arg      => (is => 'ro', isa => 'ArrayRef', default  => 'None');
-has language => (is => 'ro', isa => 'Str',      default  => 'javascript');
-has keep => (is => 'rw', isa => 'JSON::Boolean', default => sub {JSON::false});
+=attr type
+
+rw, Str, required
+
+=cut
+
+has type => (
+    is => 'rw', 
+    required => 1,
+);
+
+=attr function
+
+rw, Str, required
+
+=cut
+
+has function => (
+    is => 'ro', 
+    required => 1
+);
+
+=attr arg
+
+rw, ArrayRef, required, list of arg, default value is 'None'
+
+=cut
+
+has arg      => (
+    is => 'ro', 
+    default  => 'None'
+);
+
+=attr language
+
+rw, Str, default value is 'javascript'
+
+=cut
+
+has language => (
+    is => 'ro', 
+    default  => 'javascript'
+);
+
+=attr keep
+
+rw, a JSON::Boolean value, could be 'JSON::true' or 'JSON::false', default
+value is 'JSON::false'
+
+=cut
+
+has keep => (
+    is => 'rw', 
+    default => sub {JSON::false}
+);
 
 sub to_array {
     my $self = shift;

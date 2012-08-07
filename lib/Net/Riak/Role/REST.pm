@@ -5,7 +5,6 @@ package Net::Riak::Role::REST;
 use URI;
 
 use Mouse::Role;
-use MouseX::Types::Mouse 'Bool';
 use Data::Dump 'pp';
 with qw/Net::Riak::Role::REST::Bucket 
     Net::Riak::Role::REST::Object 
@@ -28,7 +27,6 @@ has http_response => (
 
 has disable_return_body => (
     is => 'rw',
-    isa => Bool,
     default => 0
 );
 

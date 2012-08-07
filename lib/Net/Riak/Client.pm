@@ -7,27 +7,22 @@ with 'MouseX::Traits';
 
 has prefix => (
     is      => 'rw',
-    isa     => 'Str',
     default => 'riak'
 );
 has mapred_prefix => (
     is      => 'rw',
-    isa     => 'Str',
     default => 'mapred'
 );
 has search_prefix => (
     is      => 'rw',
-    isa     => 'Str',
     default => 'solr'
 );
 has [qw/r w dw/] => (
     is      => 'rw',
-    isa     => 'Int',
     default => 2
 );
 has client_id => (
     is         => 'rw',
-    isa        => 'Str',
     lazy_build => 1,
 );
 
