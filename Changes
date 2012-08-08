@@ -1,4 +1,5 @@
-0.1600_02 WEBORAMA PATCH
+    
+    * Remove type checking, except the on has coercion 
     * Use Mouse instead of Moose to accelerate speed (Bin Shu)
 
 0.1600 Thu Mar 15 15:30:47 GMT 2012
