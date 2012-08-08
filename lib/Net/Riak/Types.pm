@@ -1,13 +1,7 @@
 package Net::Riak::Types;
 
 use MouseX::Types::Mouse qw/Str ArrayRef HashRef/;
-use MouseX::Types -declare =>
-  [qw(Socket Client HTTPResponse HTTPRequest RiakHost)];
-
-class_type Socket,       { class => 'IO::Socket::INET' };
-class_type Client,       { class => 'Net::Riak::Client' };
-class_type HTTPRequest,  { class => 'HTTP::Request' };
-class_type HTTPResponse, { class => 'HTTP::Response' };
+use MouseX::Types -declare => [qw(RiakHost)];
 
 subtype RiakHost, as ArrayRef [HashRef];
 
