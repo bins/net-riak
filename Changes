@@ -1,5 +1,11 @@
+0.1600_04 WEBORAMA PATCH
     * Add retry to connect and die when failed (Bin Shu)
+
+0.1600_03 WEBORAMA PATCH
+    * Remove type checking
     * Remove type checking, except the on has coercion 
+
+0.1600_02 WEBORAMA PATCH
     * Use Mouse instead of Moose to accelerate speed (Bin Shu)
 
 0.1600 Thu Mar 15 15:30:47 GMT 2012
