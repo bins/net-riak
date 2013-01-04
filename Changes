@@ -1,4 +1,4 @@
-    
+    * Add retry to connect and die when failed (Bin Shu)
     * Remove type checking, except the on has coercion 
     * Use Mouse instead of Moose to accelerate speed (Bin Shu)
 
