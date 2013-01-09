@@ -51,25 +51,14 @@ sub connect {
     my $self = shift;
     return if $self->has_socket && $self->connected;
 
-    my $retry = 5;
-    my $error;
-    while ($retry) {
-        eval {
-            $self->socket(
-                IO::Socket::INET->new(
-                    PeerAddr => $self->host,
-                    PeerPort => $self->port,
-                    Proto    => 'tcp',
-                    Timeout  => $self->timeout,
-                )
-            );
-            1;
-        } and last;
-        $error = $@;
-        sleep 1;
-        $retry--;
-    }
-    $error and die "Failed to connect Riak server, '$error'\n";
+    $self->socket(
+        IO::Socket::INET->new(
+            PeerAddr => $self->host,
+            PeerPort => $self->port,
+            Proto    => 'tcp',
+            Timeout  => $self->timeout,
+        )
+    );
 }
 
 sub all_buckets {
