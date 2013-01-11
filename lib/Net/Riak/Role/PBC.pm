@@ -50,14 +50,14 @@ sub connected {
 sub connect {
     my $self = shift;
     return if $self->has_socket && $self->connected;
-
     $self->socket(
         IO::Socket::INET->new(
             PeerAddr => $self->host,
             PeerPort => $self->port,
             Proto    => 'tcp',
             Timeout  => $self->timeout,
-        )
+        ) or die 'Failed to connect riak server at ' . $self->host . ':' .
+        $self->port . " '$@'\n"
     );
 }
 
